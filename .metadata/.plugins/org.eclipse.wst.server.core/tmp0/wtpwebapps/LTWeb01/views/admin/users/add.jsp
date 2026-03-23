@@ -1,29 +1,46 @@
 <%-- src/main/webapp/views/admin/users/add.jsp --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-pages.css">
 
-<h2>Thêm User</h2>
+<%@ include file="/views/admin/common/header.jsp" %>
 
-<form action="${pageContext.request.contextPath}/admin/user/add" method="post">
-    Name: <input type="text" name="name"><br><br>
+<div class="form-card">
+    <h2 class="page-title">Thêm User</h2>
 
-    Password: <input type="text" name="password"><br><br>
+    <form action="${pageContext.request.contextPath}/admin/user/add" method="post">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name">
+        </div>
 
-    Is Seller:
-    <select name="isSeller">
-        <option value="false">False</option>
-        <option value="true">True</option>
-    </select>
-    <br><br>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text" name="password">
+        </div>
 
-    Is Admin:
-    <select name="isAdmin">
-        <option value="false">False</option>
-        <option value="true">True</option>
-    </select>
-    <br><br>
+        <div class="form-group">
+            <label>Is Seller</label>
+            <select name="isSeller">
+                <option value="false">False</option>
+                <option value="true">True</option>
+            </select>
+        </div>
 
-    <button type="submit">Save</button>
-</form>
+        <div class="form-group">
+            <label>Is Admin</label>
+            <select name="isAdmin">
+                <option value="false">False</option>
+                <option value="true">True</option>
+            </select>
+        </div>
 
-<br>
-<a href="${pageContext.request.contextPath}/admin/user/">Back</a>
+        <div class="action-row">
+            <button class="btn-submit btn-primary" type="submit">Save</button>
+            <a class="btn-link btn-secondary" href="${pageContext.request.contextPath}/admin/user/">
+                Back
+            </a>
+        </div>
+    </form>
+</div>
+
+<%@ include file="/views/admin/common/footer.jsp" %>

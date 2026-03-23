@@ -1,34 +1,46 @@
 <%-- src/main/webapp/views/admin/users/edit.jsp --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
-<%@ page import="vn.iotstart.models.User" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-pages.css">
 
-<%
-    User u = (User) request.getAttribute("user");
-%>
+<%@ include file="/views/admin/common/header.jsp" %>
 
-<h2>Sửa User</h2>
+<div class="form-card">
+    <h2 class="page-title">Thêm User</h2>
 
-<form action="${pageContext.request.contextPath}/admin/user/edit/<%=u.getId()%>" method="post">
-    Name: <input type="text" name="name" value="<%=u.getName()%>"><br><br>
+    <form action="${pageContext.request.contextPath}/admin/user/add" method="post">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name">
+        </div>
 
-    Password: <input type="text" name="password" value="<%=u.getPassword()%>"><br><br>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="text" name="password">
+        </div>
 
-    Is Seller:
-    <select name="isSeller">
-        <option value="false" <%= !u.isSeller() ? "selected" : "" %>>False</option>
-        <option value="true" <%= u.isSeller() ? "selected" : "" %>>True</option>
-    </select>
-    <br><br>
+        <div class="form-group">
+            <label>Is Seller</label>
+            <select name="isSeller">
+                <option value="false">False</option>
+                <option value="true">True</option>
+            </select>
+        </div>
 
-    Is Admin:
-    <select name="isAdmin">
-        <option value="false" <%= !u.isAdmin() ? "selected" : "" %>>False</option>
-        <option value="true" <%= u.isAdmin() ? "selected" : "" %>>True</option>
-    </select>
-    <br><br>
+        <div class="form-group">
+            <label>Is Admin</label>
+            <select name="isAdmin">
+                <option value="false">False</option>
+                <option value="true">True</option>
+            </select>
+        </div>
 
-    <button type="submit">Update</button>
-</form>
+        <div class="action-row">
+            <button class="btn-submit btn-primary" type="submit">Save</button>
+            <a class="btn-link btn-secondary" href="${pageContext.request.contextPath}/admin/user/">
+                Back
+            </a>
+        </div>
+    </form>
+</div>
 
-<br>
-<a href="${pageContext.request.contextPath}/admin/user/">Back</a>
+<%@ include file="/views/admin/common/footer.jsp" %>

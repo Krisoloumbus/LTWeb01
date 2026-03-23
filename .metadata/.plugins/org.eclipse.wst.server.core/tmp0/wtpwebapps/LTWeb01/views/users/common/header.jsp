@@ -1,7 +1,12 @@
-<%-- LTWeb01\src\main\webapp\views\users\common\header.jsp --%>
-<div style="background: lightblue; padding: 10px;">
-    <h3>USER HEADER</h3>
-    <a href="${pageContext.request.contextPath}/home">Home</a> |
-    <a href="${pageContext.request.contextPath}/product">Product</a> |
-    <a href="${pageContext.request.contextPath}/auth?action=logout">Đăng xuất</a>
+<%@ page contentType="text/html;charset=UTF-8" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/user-layout.css">
+
+<div class="user-header">
+    <h3 class="user-header__title">User Panel</h3>
+
+    <div class="user-header__nav">
+        <a class="user-header__link" href="${pageContext.request.contextPath}/home">Home</a>
+        <a class="user-header__link" href="${pageContext.request.contextPath}/product">Product</a>
+        <a class="user-header__link" href="${pageContext.request.contextPath}/auth?action=logout">Đăng xuất</a>
+    </div>
 </div>

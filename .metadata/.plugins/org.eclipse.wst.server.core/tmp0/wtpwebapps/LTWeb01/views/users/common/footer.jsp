@@ -1,4 +1,5 @@
-<%-- LTWeb01\src\main\webapp\views\users\common\footer.jsp --%>
-<div style="background: lightgray; padding: 10px;">
-    <p>USER FOOTER</p>
+<%@ page contentType="text/html;charset=UTF-8" %>
+
+<div class="user-footer">
+    <p>User Footer</p>
 </div>

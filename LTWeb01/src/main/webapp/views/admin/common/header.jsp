@@ -1,7 +1,13 @@
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%-- LTWeb01\src\main\webapp\views\admin\common\header.jsp --%>
 
-<div style="background: orange; padding: 10px;">
-    <h3>ADMIN HEADER</h3>
-    <a href="${pageContext.request.contextPath}/admin/home">Dashboard</a> |
-    <a href="${pageContext.request.contextPath}/auth?action=logout">Đăng xuất</a>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin.css">
+
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-layout.css">
+
+<div class="admin-header">
+    <h3 class="admin-header__title">Admin Panel</h3>
+    <a class="admin-header__logout" href="${pageContext.request.contextPath}/auth?action=logout">
+        Đăng xuất
+    </a>
 </div>

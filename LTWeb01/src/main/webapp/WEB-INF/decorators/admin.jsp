@@ -53,7 +53,7 @@
 
 	</div>
    
-
+	<div style="background:red;color:white;padding:10px;">ADMIN DECORATOR ĐANG CHẠY</div>
     <%@ include file="/views/users/common/footer.jsp" %>
 
 </body>

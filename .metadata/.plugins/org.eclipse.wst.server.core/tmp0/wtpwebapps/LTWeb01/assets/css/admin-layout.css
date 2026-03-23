@@ -1,0 +1,110 @@
+/*src/main/webapp/assets/css/admin-layout.css*/
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    font-family: Arial, sans-serif;
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.admin-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-header {
+    background: #1e293b;
+    color: white;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-header__title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.admin-header__logout {
+    color: white;
+    background: #ef4444;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.admin-header__logout:hover {
+    background: #dc2626;
+}
+
+.admin-main {
+    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 30px 20px;
+}
+
+.admin-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.admin-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.admin-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 28px;
+    color: #0f172a;
+}
+
+.admin-desc {
+    margin-bottom: 24px;
+    color: #475569;
+    font-size: 16px;
+}
+
+.admin-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.admin-menu li a {
+    display: block;
+    background: #f8fafc;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    padding: 18px;
+    text-decoration: none;
+    color: #0f172a;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.admin-menu li a:hover {
+    background: #e0f2fe;
+    transform: translateY(-2px);
+}
+
+.admin-footer {
+    background: #0f172a;
+    color: #e5e7eb;
+    text-align: center;
+    padding: 16px 24px;
+    margin-top: auto;
+}

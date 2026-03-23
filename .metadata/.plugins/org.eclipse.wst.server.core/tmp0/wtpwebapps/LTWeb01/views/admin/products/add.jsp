@@ -1,41 +1,65 @@
-<%-- LTWeb01\src\main\webapp\views\admin\products\add.jsp --%>
-
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.iotstart.models.Category" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-pages.css">
 
-<h2>Thêm sản phẩm</h2>
+<%@ include file="/views/admin/common/header.jsp" %>
 
-<form action="${pageContext.request.contextPath}/admin/product/add" method="post" enctype="multipart/form-data">
+<div class="form-card">
+    <h2 class="page-title">Thêm sản phẩm</h2>
 
-    Name: <input type="text" name="name"><br>
+    <form action="${pageContext.request.contextPath}/admin/product/add" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name">
+        </div>
 
-    Description: <textarea name="description"></textarea><br>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description"></textarea>
+        </div>
 
-    Price: <input type="text" name="price"><br>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="price">
+        </div>
 
-	Category:
-	<select name="category_id">
-	    <%
-	        List<Category> categories = (List<Category>) request.getAttribute("categories");
-	        for (Category c : categories) {
-	    %>
-	        <option value="<%=c.getId()%>">
-	            <%=c.getName()%>
-	        </option>
-	    <%
-	        }
-	    %>
-	</select>
-	<br>
+        <div class="form-group">
+            <label>Category</label>
+            <select name="category_id">
+                <%
+                    List<Category> categories = (List<Category>) request.getAttribute("categories");
+                    if (categories != null) {
+                        for (Category c : categories) {
+                %>
+                    <option value="<%=c.getId()%>"><%=c.getName()%></option>
+                <%
+                        }
+                    }
+                %>
+            </select>
+        </div>
 
-    Amount: <input type="text" name="amount"><br>
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="text" name="amount">
+        </div>
 
-    Stock: <input type="text" name="stock"><br>
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="text" name="stock">
+        </div>
 
-    Image: <input type="file" name="file"><br>
+        <div class="form-group">
+            <label>Image</label>
+            <input type="file" name="file" accept="image/*">
+        </div>
 
-    <button type="submit">Save</button>
-</form>
+        <div class="action-row">
+            <button class="btn-submit btn-primary" type="submit">Save</button>
+            <a class="btn-link btn-secondary" href="${pageContext.request.contextPath}/admin/product/">Back</a>
+        </div>
+    </form>
+</div>
 
-<a href="${pageContext.request.contextPath}/admin/product">Back</a>
+<%@ include file="/views/admin/common/footer.jsp" %>

@@ -1,3 +1,4 @@
+<%-- LTWeb01\src\main\webapp\WEB-INF\decorators\admin.jsp --%>
 <%@ taglib prefix="sitemesh" uri="http://www.sitemesh.org/sitemesh" %>
 
 <html>
@@ -43,7 +44,7 @@
 
 			<b>User</b>
 			<a href="${pageContext.request.contextPath}/admin/user/">Quan ly User</a>
-			
+
 	    </div>
 
 		<div>
@@ -52,7 +53,7 @@
 
 	</div>
    
-
+	<div style="background:red;color:white;padding:10px;">ADMIN DECORATOR ĐANG CHẠY</div>
     <%@ include file="/views/users/common/footer.jsp" %>
 
 </body>

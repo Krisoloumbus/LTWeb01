@@ -2,47 +2,87 @@
 <%@ page import="vn.iotstart.models.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.iotstart.models.Category" %>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin-pages.css">
 
 <%
     Product p = (Product) request.getAttribute("product");
 %>
 
-<h2>Sửa sản phẩm</h2>
+<%@ include file="/views/admin/common/header.jsp" %>
 
-<form action="${pageContext.request.contextPath}/admin/product/edit/<%=p.getId()%>" method="post" enctype="multipart/form-data">
+<div class="form-card">
+    <h2 class="page-title">Sửa sản phẩm</h2>
 
-    Name: <input type="text" name="name" value="<%=p.getName()%>"><br>
+    <form action="${pageContext.request.contextPath}/admin/product/edit/<%=p.getId()%>" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" value="<%=p.getName()%>">
+        </div>
 
-    Description:
-    <textarea name="description"><%=p.getDescription()%></textarea><br>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description"><%=p.getDescription()%></textarea>
+        </div>
 
-    Price: <input type="text" name="price" value="<%=p.getPrice()%>"><br>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="text" name="price" value="<%=p.getPrice()%>">
+        </div>
 
-	Category:
-	<select name="category_id">
-	    <%
-	        List<Category> categories = (List<Category>) request.getAttribute("categories");
-	        for (Category c : categories) {
-	    %>
-	        <option value="<%=c.getId()%>">
-	            <%=c.getName()%>
-	        </option>
-	    <%
-	        }
-	    %>
-	</select>
-	<br>
+        <div class="form-group">
+            <label>Category</label>
+            <select name="category_id">
+                <%
+                    List<Category> categories = (List<Category>) request.getAttribute("categories");
+                    if (categories != null) {
+                        for (Category c : categories) {
+                            boolean selected = c.getId() == p.getCategoryId();
+                %>
+                    <option value="<%=c.getId()%>" <%= selected ? "selected" : "" %>>
+                        <%=c.getName()%>
+                    </option>
+                <%
+                        }
+                    }
+                %>
+            </select>
+        </div>
 
-    Amount: <input type="text" name="amount" value="<%=p.getAmount()%>"><br>
+        <div class="form-group">
+            <label>Amount</label>
+            <input type="text" name="amount" value="<%=p.getAmount()%>">
+        </div>
 
-    Stock: <input type="text" name="stock" value="<%=p.getStock()%>"><br>
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="text" name="stock" value="<%=p.getStock()%>">
+        </div>
 
-    <p>Ảnh hiện tại:</p>
-    <img src="<%=request.getContextPath()%>/images/<%=p.getImg()%>" width="100"><br>
+        <div class="form-group">
+            <label>Ảnh hiện tại</label>
+            <%
+                if (p.getImg() != null && !p.getImg().isEmpty()) {
+            %>
+                <img class="current-img" src="<%=request.getContextPath()%>/images/<%=p.getImg()%>" alt="<%=p.getName()%>">
+            <%
+                } else {
+            %>
+                <p>Không có ảnh</p>
+            <%
+                }
+            %>
+        </div>
 
-    Image mới: <input type="file" name="file"><br>
+        <div class="form-group">
+            <label>Image mới</label>
+            <input type="file" name="file" accept="image/*">
+        </div>
 
-    <button type="submit">Update</button>
-</form>
+        <div class="action-row">
+            <button class="btn-submit btn-warning" type="submit">Update</button>
+            <a class="btn-link btn-secondary" href="${pageContext.request.contextPath}/admin/product/">Back</a>
+        </div>
+    </form>
+</div>
 
-<a href="${pageContext.request.contextPath}/admin/product/">Back</a>
+<%@ include file="/views/admin/common/footer.jsp" %>
