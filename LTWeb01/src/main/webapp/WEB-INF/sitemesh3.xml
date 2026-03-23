@@ -1,0 +1,8 @@
+<!-- LTWeb01\src\main\webapp\WEB-INF\sitemesh3.xml -->
+
+<sitemesh>
+    <mapping path="/views/admin/*" decorator="admin.jsp"/>
+    <mapping path="/views/*" decorator="main.jsp"/>
+
+    <exclude path="/views/auth/*"/>
+</sitemesh>
